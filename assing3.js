@@ -7,22 +7,19 @@
 // kioskCalc.getTotalCost( )  // returns “2 orange for KES 60”
 
 
-var shop=[
-    {
-        name:"pineapple",
-        price:30,
-    },
-    {
-        name:"mangoes",
-        price:50,
-    },
-    {
-        name:"orange",
-        price:35,
+class Shop{
+    constructor(fruits,quantity){
+        this.fruits=fruits
+        this.quantity=quantity
+        this.fruitPriceList={"pineapple":30,"mango":50,"orange":70};
+        this.getTotalCost=function(){
+            return `${quantity} ${fruits} for KES ${quantity*this.price}`
+        }
     }
-]
-function getTotalCost(name,quantity){
-    let b=shop.find(item=>item.name===name)
-    console.log(`${quantity} ${name} for Kes ${b.price*quantity}`)
 }
-getTotalCost("pineapple",4)
+Shop.prototype.price=30;
+var shop=new Shop("pineapple",4)
+
+console.log(shop.getTotalCost());
+
+

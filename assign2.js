@@ -7,19 +7,24 @@
 // For example, calculateFruitCost('orange', 2) should return "2 Oranges for KES 
 // 60.00"
 
-class Shop{
-    constructor(fruits,quantity){
-        this.fruits=fruits
-        this.quantity=quantity
-        this.fruitPriceList={"pineapple":30,"mango":50,"orange":70};
-        this.getTotalCost=function(){
-            return `${quantity} ${fruits} for kes ${quantity*this.price}`
-        }
+var shop=[
+    {
+        name:"pineapple",
+        price:30,
+    },
+    {
+        name:"mangoes",
+        price:50,
+    },
+    {
+        name:"orange",
+        price:35,
     }
+]
+function getTotalCost(name,quantity){
+    let b=shop.find(item=>item.name===name)
+    console.log(`${quantity} ${name} for KES ${b.price*quantity}`)
 }
-Shop.prototype.price=30;
-var shop=new Shop("pineapple",4)
-
-console.log(shop.getTotalCost());
+getTotalCost("pineapple",4)
 
 
